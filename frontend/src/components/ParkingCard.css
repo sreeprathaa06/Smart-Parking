@@ -1,0 +1,73 @@
+.parking-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.parking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.parking-card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.location-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.parking-card-details {
+  background-color: var(--bg-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.card-btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+.osm-badge {
+  display: inline-block;
+  background-color: var(--bg-light);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+}
+
+.osm-card {
+  border: 1px dashed #cbd5e1;
+  background-color: #f8fafc;
+}

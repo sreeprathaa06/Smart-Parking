@@ -1,0 +1,206 @@
+.admin-dashboard {
+  display: flex;
+  min-height: calc(100vh - 160px);
+  gap: 2rem;
+  margin: -2rem; /* Negate the container padding for full width if needed, or keep bounded */
+  padding: 2rem;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.admin-sidebar h2 {
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-nav-item {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.admin-nav-item:hover {
+  background-color: var(--bg-light);
+  color: var(--text-main);
+}
+
+.admin-nav-item.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.admin-main {
+  flex-grow: 1;
+}
+
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--bg-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+
+.stat-card h3 {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-light);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.action-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--bg-white);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+  }
+}
