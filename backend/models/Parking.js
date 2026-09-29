@@ -39,6 +39,14 @@ const parkingSchema = new mongoose.Schema(
       enum: ['active', 'inactive', 'full'],
       default: 'active',
     },
+    coordinates: {
+      lat: { type: Number },
+      lng: { type: Number }
+    },
+    hasEVCharging: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true, // Automatically manages createdAt and updatedAt
