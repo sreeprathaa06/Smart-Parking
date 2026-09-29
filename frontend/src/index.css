@@ -2,26 +2,27 @@
 
 :root {
   /* Colors */
-  --primary: #0ea5e9;
-  --primary-hover: #0284c7;
-  --secondary: #10b981;
-  --secondary-hover: #059669;
-  --danger: #ef4444;
-  --danger-hover: #dc2626;
+  --primary: #00f0ff; /* Neon cyan */
+  --primary-hover: #00c3cc;
+  --secondary: #ff00e5; /* Neon magenta */
+  --secondary-hover: #cc00b8;
+  --danger: #ff3366;
+  --danger-hover: #cc2952;
   
-  --bg-main: #f8fafc;
-  --bg-white: #ffffff;
-  --bg-light: #f1f5f9;
+  --bg-main: #09090b;
+  --bg-white: #18181b;
+  --bg-light: #27272a;
   
-  --text-main: #0f172a;
-  --text-muted: #64748b;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
   
-  --border-light: #e2e8f0;
+  --border-light: #3f3f46;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Shadows & Glows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --neon-glow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
 }
 
 * {
