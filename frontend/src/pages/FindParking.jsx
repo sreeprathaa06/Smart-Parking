@@ -5,6 +5,17 @@ import socket from '../services/socket';
 import ParkingCard from '../components/ParkingCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { FiSearch, FiMap } from 'react-icons/fi';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix Leaflet marker icon issue in React
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 const FindParking = () => {
   const location = useLocation();
@@ -83,21 +94,48 @@ const FindParking = () => {
         <p className="error-text" style={{ textAlign: 'center', color: 'red' }}>Failed to load parking spots: {error}</p>
       ) : (
         <>
-          {/* SmartPark Managed Locations */}
-          <div>
-            <h2 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              SmartPark Locations
-            </h2>
-            <div className="parking-grid">
-              {parkings.map(parking => (
-                <ParkingCard key={parking._id} parking={parking} />
-              ))}
+          {/* Map View & List View Split */}
+          <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+            {/* Map Column */}
+            <div style={{ flex: '1 1 500px', height: '500px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-light)' }}>
+              <MapContainer center={[12.9716, 77.5946]} zoom={6} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {parkings.map(parking => (
+                  parking.coordinates && parking.coordinates.lat ? (
+                    <Marker 
+                      key={parking._id} 
+                      position={[parking.coordinates.lat, parking.coordinates.lng]}
+                    >
+                      <Popup>
+                        <strong>{parking.name}</strong><br/>
+                        Slots: {parking.availableSlots} / {parking.totalSlots}<br/>
+                        {parking.hasEVCharging && <span style={{ color: 'var(--primary)' }}>⚡ EV Charging Available</span>}
+                      </Popup>
+                    </Marker>
+                  ) : null
+                ))}
+              </MapContainer>
             </div>
-            {parkings.length === 0 && (
-              <div className="empty-state" style={{ padding: '2rem 1rem' }}>
-                <p>No SmartPark managed locations found matching "{searchInput}".</p>
+
+            {/* List Column */}
+            <div style={{ flex: '1 1 400px' }}>
+              <h2 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                SmartPark Locations
+              </h2>
+              <div className="parking-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {parkings.map(parking => (
+                  <ParkingCard key={parking._id} parking={parking} />
+                ))}
               </div>
-            )}
+              {parkings.length === 0 && (
+                <div className="empty-state" style={{ padding: '2rem 1rem' }}>
+                  <p>No SmartPark managed locations found matching "{searchInput}".</p>
+                </div>
+              )}
+            </div>
           </div>
         </>
       )}
