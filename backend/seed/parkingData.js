@@ -22,7 +22,9 @@ const parkings = [
     pricePerHour: 20,
     openingTime: '08:00',
     closingTime: '18:00',
-    description: 'Main parking area for staff and visitors near the administrative block.'
+    description: 'Main parking area for staff and visitors near the administrative block.',
+    coordinates: { lat: 11.3615, lng: 77.8285 },
+    hasEVCharging: true
   },
   {
     name: 'KSRCE Student Parking',
@@ -32,7 +34,9 @@ const parkings = [
     pricePerHour: 15,
     openingTime: '08:00',
     closingTime: '18:00',
-    description: 'Dedicated student parking near the main gate.'
+    description: 'Dedicated student parking near the main gate.',
+    coordinates: { lat: 11.3600, lng: 77.8270 },
+    hasEVCharging: false
   },
   {
     name: 'Salem Central Parking',
@@ -42,7 +46,9 @@ const parkings = [
     pricePerHour: 30,
     openingTime: '00:00',
     closingTime: '23:59',
-    description: '24/7 central parking area in the heart of Salem city.'
+    description: '24/7 central parking area in the heart of Salem city.',
+    coordinates: { lat: 11.6643, lng: 78.1460 },
+    hasEVCharging: true
   },
   {
     name: 'Salem Junction Parking',
@@ -52,7 +58,9 @@ const parkings = [
     pricePerHour: 25,
     openingTime: '00:00',
     closingTime: '23:59',
-    description: 'Railway station parking with high security.'
+    description: 'Railway station parking with high security.',
+    coordinates: { lat: 11.6750, lng: 78.1320 },
+    hasEVCharging: false
   },
   {
     name: 'Coimbatore Central Parking',
@@ -62,7 +70,9 @@ const parkings = [
     pricePerHour: 30,
     openingTime: '06:00',
     closingTime: '22:00',
-    description: 'Large parking facility near Coimbatore market.'
+    description: 'Large parking facility near Coimbatore market.',
+    coordinates: { lat: 11.0168, lng: 76.9558 },
+    hasEVCharging: true
   },
   {
     name: 'Chennai Central Parking',
@@ -72,7 +82,9 @@ const parkings = [
     pricePerHour: 40,
     openingTime: '00:00',
     closingTime: '23:59',
-    description: 'Multi-level car parking at Chennai Central station.'
+    description: 'Multi-level car parking at Chennai Central station.',
+    coordinates: { lat: 13.0827, lng: 80.2707 },
+    hasEVCharging: true
   },
   {
     name: 'Bengaluru City Parking',
@@ -82,7 +94,9 @@ const parkings = [
     pricePerHour: 50,
     openingTime: '05:00',
     closingTime: '23:00',
-    description: 'Premium parking area in Bengaluru city center.'
+    description: 'Premium parking area in Bengaluru city center.',
+    coordinates: { lat: 12.9716, lng: 77.5946 },
+    hasEVCharging: true
   },
   {
     name: 'Erode City Parking',
@@ -92,7 +106,9 @@ const parkings = [
     pricePerHour: 20,
     openingTime: '07:00',
     closingTime: '21:00',
-    description: 'Convenient parking near Erode bus stand.'
+    description: 'Convenient parking near Erode bus stand.',
+    coordinates: { lat: 11.3410, lng: 77.7172 },
+    hasEVCharging: false
   }
 ];
 
